@@ -1,7 +1,6 @@
 import { Field, Form, Formik } from "formik";
 import { Select, TextField } from "formik-material-ui";
 import { Button, Box } from "@material-ui/core";
-import { flexbox } from '@material-ui/system';
 import { KeyboardDatePicker } from "formik-material-ui-pickers";
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
@@ -38,7 +37,7 @@ const Home = () => {
               {({ submitForm, isSubmitting }) => (
                 <MuiPickersUtilsProvider utils={DateFnsUtils} locale={brLocale}>
                   <Form className={classes.form}>
-                    <Box  display="flex" flexWrap="wrap">
+                    <Box className={classes.root}>
                       <Box>
                         <h1>Dados Pessoais</h1>
 
@@ -179,7 +178,7 @@ const Home = () => {
                         />
                       </Box>
                     </Box>
-                    <Box  display="flex" flexWrap="wrap">
+                    <Box className={classes.root}>
                       <Box>
                         <h1>Documentos</h1>
 
@@ -221,6 +220,10 @@ const Home = () => {
                     </Box>
                     <Box>
                       <Button
+                        classes={{
+                          root: classes.submitButton,
+                          label: classes.label,
+                        }}
                         color="primary"
                         disabled={isSubmitting}
                         disableElevation

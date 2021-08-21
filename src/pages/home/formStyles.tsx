@@ -4,9 +4,9 @@ import '../../styles/global.css';
   
 const formStyles = makeStyles(theme => ({
     root: {
-        // display: 'flex',
-        // alignItems: 'center',
-        // justifyContent: 'center',
+        display: 'flex',
+        flexWrap: 'wrap',
+        alignItems: 'center',
     },
 
     form: {
@@ -25,7 +25,6 @@ const formStyles = makeStyles(theme => ({
     },
 
     label: {
-        fontSize: 20,
         textTransform: 'capitalize',
         fontWeight: 700,
     },       

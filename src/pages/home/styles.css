@@ -8,9 +8,4 @@ div.home section {
     height: 500px;
 }
 
-div.home section.conteúdo{
-    justify-content: center;
-    align-items: center;
-    width: 40%;
-}
 
