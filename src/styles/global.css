@@ -1,0 +1,13 @@
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main{
+    margin-top: 40px;
+}
+
+section{
+    padding: 10px;
+}

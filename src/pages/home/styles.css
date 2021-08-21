@@ -1,0 +1,16 @@
+div.home{
+    display: flex;
+    align-items: center;
+}
+
+div.home section {
+    display: flex;
+    height: 500px;
+}
+
+div.home section.conteúdo{
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+
