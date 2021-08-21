@@ -7,6 +7,8 @@ const formStyles = makeStyles(theme => ({
         display: 'flex',
         flexWrap: 'wrap',
         alignItems: 'center',
+        padding: 20,
+        margin: theme.spacing(2),
     },
 
     form: {
@@ -17,7 +19,7 @@ const formStyles = makeStyles(theme => ({
     },
 
     field: {
-        marginTop: theme.spacing(2),
+        margin: theme.spacing(1),
     },
 
     submitButton: {

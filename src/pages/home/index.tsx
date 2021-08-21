@@ -1,6 +1,6 @@
 import { Field, Form, Formik } from "formik";
 import { Select, TextField } from "formik-material-ui";
-import { Button, Box } from "@material-ui/core";
+import { Button, Box, Paper } from "@material-ui/core";
 import { KeyboardDatePicker } from "formik-material-ui-pickers";
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
@@ -23,7 +23,7 @@ const Home = () => {
             <h1> Aqui vai um conteúdo</h1>
           </section>
 
-          <section className={classes.root}>
+          <section className="formulário">
             <Formik
               initialValues={initialValues}
               onSubmit={(values, { setSubmitting }) => {
@@ -35,12 +35,12 @@ const Home = () => {
               // validationSchema={}
             >
               {({ submitForm, isSubmitting }) => (
+               
                 <MuiPickersUtilsProvider utils={DateFnsUtils} locale={brLocale}>
                   <Form className={classes.form}>
-                    <Box className={classes.root}>
+                    <h1>Dados Pessoais</h1>
+                    <Paper className={classes.root}>
                       <Box>
-                        <h1>Dados Pessoais</h1>
-
                         <h2>Nome Completo</h2>
                         <Field
                           className={classes.field}
@@ -177,11 +177,10 @@ const Home = () => {
                           variant="outlined"
                         />
                       </Box>
-                    </Box>
-                    <Box className={classes.root}>
+                    </Paper>
+                    <h1>Documentos</h1>
+                    <Paper className={classes.root}>
                       <Box>
-                        <h1>Documentos</h1>
-
                         <h2>Identidade</h2>
                         <Field
                           className={classes.field}
@@ -217,7 +216,7 @@ const Home = () => {
                           variant="outlined"
                         />
                       </Box>
-                    </Box>
+                    </Paper>
                     <Box>
                       <Button
                         classes={{

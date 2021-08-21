@@ -1,11 +1,7 @@
 section.home{
     display: flex;
-    align-items: center;
 }
 
-div.home section {
-    display: flex;
-    height: 500px;
+section.home h1, h2{
+    padding: 8px;
 }
-
-
