@@ -13,7 +13,7 @@ const formStyles = makeStyles(theme => ({
         display: 'flex',
         flexDirection: 'column',
         flexWrap: 'wrap',
-        width:180
+       
     },
 
     field: {
