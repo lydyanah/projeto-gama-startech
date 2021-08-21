@@ -1,9 +1,9 @@
 import Home from "./pages/home";
 
-function App() {
-    return (
-    <Home/>
+const App = () => {
+  return (
+    <Home />
   );
-}
+};
 
 export default App;
