@@ -4,6 +4,7 @@ import { Button } from "@material-ui/core";
 import { KeyboardDatePicker } from "formik-material-ui-pickers";
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
+import brLocale from "date-fns/locale/pt-BR";
 // import * as Yup from "yup";
 import Page from "../../components/Page/Page";
 import "./styles.css";
@@ -24,7 +25,7 @@ const Home = () => {
           </section>
 
           <section className={classes.root}>
-            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+            <MuiPickersUtilsProvider utils={DateFnsUtils} locale={brLocale}>
               <Formik 
                 initialValues={initialValues}
                 onSubmit={(values, { setSubmitting }) => {
