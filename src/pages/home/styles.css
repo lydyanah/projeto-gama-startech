@@ -1,13 +1,22 @@
 section.home{
     display: flex;
-}
-
-section.home h1, h2{
-    padding: 8px;
+    flex-direction: column;
 }
 
 section.conteúdo{
     display: flex;
     justify-content: center;
-    width: 40%;
+    min-width: 50%;
+    height: 500px;
 }
+
+@media (min-width: 1024px){
+    section.home{
+      flex-direction: row;
+    }
+
+    section.conteúdo{
+        align-items: center;
+        width: 50%;
+    }
+  }

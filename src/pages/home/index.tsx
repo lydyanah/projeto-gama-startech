@@ -1,6 +1,6 @@
 import { Field, Form, Formik } from "formik";
-import { Select, TextField } from "formik-material-ui";
-import { Button, Box, Paper, Container } from "@material-ui/core";
+import { TextField } from "formik-material-ui";
+import { Button, Grid, Paper, Typography, Divider } from "@material-ui/core";
 import { KeyboardDatePicker } from "formik-material-ui-pickers";
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
@@ -20,7 +20,7 @@ const Home = () => {
       <Page>
         <section className="home">
           <section className="conteúdo">
-            <h1> Aqui vai um conteúdo</h1>
+            <Typography> Aqui vai um conteúdo</Typography>
           </section>
 
           <section className="formulário">
@@ -35,34 +35,44 @@ const Home = () => {
               // validationSchema={}
             >
               {({ submitForm, isSubmitting }) => (
-                <Container maxWidth="md">
+                <Grid container spacing={3}>
                   <MuiPickersUtilsProvider
                     utils={DateFnsUtils}
                     locale={brLocale}
                   >
                     <Form className={classes.form}>
-                      <h1>Dados Pessoais</h1>
-                      <Paper className={classes.root}>
-                        <Box>
-                          <h2>Nome Completo</h2>
+                      <Typography variant="h1" className={classes.h1}>
+                        Dados Pessoais
+                      </Typography>
+                      <Paper className={classes.root} elevation={3}>
+                        <Grid item xs>
+                          <Typography variant="h2" className={classes.h2}>
+                            Nome Completo
+                          </Typography>
                           <Field
                             className={classes.field}
                             name="nome"
                             component={TextField}
                             variant="outlined"
+                            size="small"
                           />
-                        </Box>
-                        <Box>
-                          <h2>Cargo Pretendido</h2>
+                        </Grid>
+                        <Grid item xs>
+                          <Typography variant="h2" className={classes.h2}>
+                            Cargo Pretendido
+                          </Typography>
                           <Field
                             className={classes.field}
                             name="cargo"
                             component={TextField}
                             variant="outlined"
+                            size="small"
                           />
-                        </Box>
-                        <Box>
-                          <h2>Data de Nascimento</h2>
+                        </Grid>
+                        <Grid item xs>
+                          <Typography variant="h2" className={classes.h2}>
+                            Data de Nascimento
+                          </Typography>
                           <Field
                             className={classes.field}
                             component={KeyboardDatePicker}
@@ -70,157 +80,209 @@ const Home = () => {
                             format="dd/MM/yy"
                             disableFuture="true"
                             inputVariant="outlined"
+                            size="small"
                           />
-                        </Box>
-                        <Box>
-                          <h2>Estado Civil</h2>
+                        </Grid>
+                        <Grid item xs>
+                          <Typography variant="h2" className={classes.h2}>
+                            Estado Civil
+                          </Typography>
                           <Field
                             className={classes.field}
-                            component={Select}
+                            component={TextField}
                             name="estadoCivil"
                             variant="outlined"
+                            size="small"
+                            SelectProps={{
+                              native: true,
+                            }}
                           />
-                        </Box>
-                        <Box>
-                          <h2>Gênero</h2>
+                        </Grid>
+                        <Grid item xs>
+                          <Typography variant="h2" className={classes.h2}>
+                            Gênero
+                          </Typography>
                           <Field
                             className={classes.field}
-                            component={Select}
+                            component={TextField}
                             name="genero"
                             variant="outlined"
+                            size="small"
                           />
-                        </Box>
-                        <Box>
-                          <h2>Endereço</h2>
+                        </Grid>
+                        <Grid item xs>
+                          <Typography variant="h2" className={classes.h2}>
+                            Endereço
+                          </Typography>
                           <Field
                             className={classes.field}
                             component={TextField}
                             name="endereço"
                             type="text"
                             variant="outlined"
+                            size="small"
                           />
-                        </Box>
-                        <Box>
-                          <h2>Bairro</h2>
+                        </Grid>
+                        <Grid item xs> 
+                          <Typography variant="h2" className={classes.h2}>
+                            Bairro
+                          </Typography>
                           <Field
                             className={classes.field}
                             component={TextField}
                             name="bairro"
                             type="text"
                             variant="outlined"
+                            size="small"
                           />
-                        </Box>
-                        <Box>
-                          <h2>Cidade</h2>
+                        </Grid>
+                        <Grid item xs>
+                          <Typography variant="h2" className={classes.h2}>
+                            Cidade
+                          </Typography>
                           <Field
                             className={classes.field}
                             component={TextField}
                             name="cidade"
                             type="text"
                             variant="outlined"
+                            size="small"
                           />
-                        </Box>
-                        <Box>
-                          <h2>CEP</h2>
+                        </Grid>
+                        <Grid item xs>
+                          <Typography variant="h2" className={classes.h2}>
+                            CEP
+                          </Typography>
                           <Field
                             className={classes.field}
                             component={TextField}
                             name="cep"
                             type="text"
                             variant="outlined"
+                            size="small"
                           />
-                        </Box>
-                        <Box>
-                          <h2>Telefone Fixo 1</h2>
+                        </Grid>
+                        <Grid item xs>
+                          <Typography variant="h2" className={classes.h2}>
+                            Telefone Fixo 1
+                          </Typography>
                           <Field
                             className={classes.field}
                             component={TextField}
                             name="telefone"
                             type="text"
                             variant="outlined"
+                            size="small"
                           />
-                        </Box>
-                        <Box>
-                          <h2>Telefone Fixo 2</h2>
+                        </Grid>
+                        <Grid item xs>
+                          <Typography variant="h2" className={classes.h2}>
+                            Telefone Fixo 2
+                          </Typography>
                           <Field
                             className={classes.field}
                             component={TextField}
                             name="telefone"
                             type="text"
                             variant="outlined"
+                            size="small"
                           />
-                        </Box>
-                        <Box>
-                          <h2>Celular</h2>
+                        </Grid>
+                        <Grid item xs>
+                          <Typography variant="h2" className={classes.h2}>
+                            Celular
+                          </Typography>
                           <Field
                             className={classes.field}
                             component={TextField}
                             name="celular"
                             type="text"
                             variant="outlined"
+                            size="small"
                           />
-                        </Box>
-                        <Box>
-                          <h2>Contato</h2>
+                        </Grid>
+                        <Grid item xs>
+                          <Typography variant="h2" className={classes.h2}>
+                            Contato
+                          </Typography>
                           <Field
                             className={classes.field}
                             component={TextField}
                             name="contato"
                             type="text"
                             variant="outlined"
+                            size="small"
                           />
-                        </Box>
-                        <Box>
-                          <h2>E-mail</h2>
+                        </Grid>
+                        <Grid item xs>
+                          <Typography variant="h2" className={classes.h2}>
+                            E-mail
+                          </Typography>
                           <Field
                             className={classes.field}
                             component={TextField}
                             name="email"
                             type="email"
                             variant="outlined"
+                            size="small"
                           />
-                        </Box>
+                        </Grid>                       
                       </Paper>
-                      <h1>Documentos</h1>
-                      <Paper className={classes.root}>
-                        <Box>
-                          <h2>Identidade</h2>
+                      <Divider className={classes.divider}/>
+                      <Typography variant="h1" className={classes.h1}>
+                        Documentos
+                      </Typography>
+                      <Paper className={classes.root} elevation={3}>
+                        <Grid item xs>
+                          <Typography variant="h2" className={classes.h2}>
+                            Identidade
+                          </Typography>
                           <Field
                             className={classes.field}
                             name="identidade"
                             component={TextField}
                             variant="outlined"
+                            size="small"
                           />
-                        </Box>
-                        <Box>
-                          <h2>CPF</h2>
+                        </Grid>
+                        <Grid item xs>
+                          <Typography variant="h2" className={classes.h2}>
+                            CPF
+                          </Typography>
                           <Field
                             className={classes.field}
                             name="cpf"
                             component={TextField}
                             variant="outlined"
+                            size="small"
                           />
-                        </Box>
-                        <Box>
-                          <h2>Possui veículo?</h2>
+                        </Grid>
+                        <Grid item xs>
+                          <Typography variant="h2" className={classes.h2}>
+                            Possui veículo?
+                          </Typography>
                           <Field
                             className={classes.field}
-                            component={Select}
+                            component={TextField}
                             name="veiculo"
                             variant="outlined"
+                            size="small"
                           />
-                        </Box>
-                        <Box>
-                          <h2>Habilitação</h2>
+                        </Grid>
+                        <Grid item xs>
+                          <Typography variant="h2" className={classes.h2}>
+                            Habilitação
+                          </Typography>
                           <Field
                             className={classes.field}
-                            component={Select}
+                            component={TextField}
                             name="habilitação"
                             variant="outlined"
+                            size="small"
                           />
-                        </Box>
+                        </Grid>
                       </Paper>
-                      <Box>
+                      <Grid className={classes.submitButton}>
                         <Button
                           classes={{
                             root: classes.submitButton,
@@ -234,11 +296,11 @@ const Home = () => {
                         >
                           Enviar
                         </Button>
-                      </Box>
+                      </Grid>
                       {isSubmitting}
                     </Form>
                   </MuiPickersUtilsProvider>
-                </Container>
+                </Grid>
               )}
             </Formik>
           </section>
