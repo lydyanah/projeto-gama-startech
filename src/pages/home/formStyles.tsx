@@ -2,43 +2,35 @@ import { makeStyles} from '@material-ui/core';
 import '../../styles/global.css';
 
   
-const formStyles = makeStyles(theme => ({
-    container: {
-        display: 'grid',
-        gridTemplateColumns: 'repeat(12, 1fr)',
-        gridGap: theme.spacing(3),
-    },
-    
+const formStyles = makeStyles(theme => ({  
     root: {
         display: 'flex',
+        flexDirection:'column',
         flexWrap: 'wrap',
-        flexGrow: 1,
-        alignItems: 'center',
+        justifyContent: 'center',
         padding: 20,
-        margin: theme.spacing(2),
-        maxWidth: 800,
-        maxHeight: 500,
-    },       
+        margin: theme.spacing(1),
+    },
+    
+    container: {
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
     
     form: {
         display: 'flex',
         flexDirection: 'column',
-        flexWrap: 'wrap',     
+        alignItems:'center',     
     },
     
     field: {
-        margin: theme.spacing(1),
+        margin: theme.spacing(0.3),
     },
-    
-    paper: {
-        padding: theme.spacing(1),
-        // whiteSpace: 'nowrap',
-        marginBottom: theme.spacing(1),
-    },
-    
-    divider: {
-        margin: theme.spacing(2, 0),
-    },
+
+    input:{           
+        padding: '0 10px',
+        height: 35,
+  },
     
     label: {
         textTransform: 'capitalize',
@@ -49,7 +41,6 @@ const formStyles = makeStyles(theme => ({
         fontSize: '1.25rem',
         fontWeight: 500,
         margin: theme.spacing(1),
-        padding: 5,        
     },
     
     h2: {
@@ -61,7 +52,7 @@ const formStyles = makeStyles(theme => ({
     submitButton: {
         display: 'flex',
         justifyContent: 'center',
-        
+        margin: theme.spacing(1)
     },
 }));
 

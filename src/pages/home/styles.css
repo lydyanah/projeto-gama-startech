@@ -6,13 +6,19 @@ section.home{
 section.conteúdo{
     display: flex;
     justify-content: center;
-    min-width: 50%;
+    min-width: 40%;
     height: 500px;
+}
+
+section.formulário{
+    display: flex;
+    justify-content: center;
 }
 
 @media (min-width: 1024px){
     section.home{
       flex-direction: row;
+      min-height: 600px;
     }
 
     section.conteúdo{
