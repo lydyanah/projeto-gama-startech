@@ -91,6 +91,7 @@ const Home = () => {
                               disableFuture="true"
                               inputVariant="outlined"
                               size="small"
+                              cancelLabel="CANCELAR"
                               InputProps={{ classes: { input: classes.input } }}
                             />
                           </Grid>
@@ -123,7 +124,22 @@ const Home = () => {
                               InputProps={{ classes: { input: classes.input } }}
                             />
                           </Grid>
-                          <Grid item className={classes.field} xs={9}>
+                          <Grid item className={classes.field} xs={2}>
+                            <Typography variant="h2" className={classes.h2}>
+                              CEP
+                            </Typography>
+                            <Field
+                              className={classes.field}
+                              component={TextField}
+                              name="cep"
+                              type="text"
+                              variant="outlined"
+                              size="small"
+                              fullWidth
+                              InputProps={{ classes: { input: classes.input } }}
+                            />
+                          </Grid>
+                          <Grid item className={classes.field} xs={8}>
                             <Typography variant="h2" className={classes.h2}>
                               Endereço
                             </Typography>
@@ -138,14 +154,14 @@ const Home = () => {
                               InputProps={{ classes: { input: classes.input } }}
                             />
                           </Grid>
-                          <Grid item className={classes.field} xs={2}>
+                          <Grid item className={classes.field} xs={1}>
                             <Typography variant="h2" className={classes.h2}>
-                              CEP
+                              Nº
                             </Typography>
                             <Field
                               className={classes.field}
                               component={TextField}
-                              name="cep"
+                              name="numero"
                               type="text"
                               variant="outlined"
                               size="small"
