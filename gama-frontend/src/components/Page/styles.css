@@ -1,0 +1,43 @@
+  .navbar-fixed{
+    background-color: rgb(76, 223, 215);
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+  }
+  
+  .navbar-content{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 10px 25px;
+  }
+  
+  .menuItem {
+    padding: 10px;
+  }
+  
+  footer{
+    background-color: rgb(76, 223, 215);
+    height: 50px;
+    margin-top: auto;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  @media (max-width: 440px){
+    .navbar-content{
+      flex-direction: column;
+    }
+  }
+  
+  @media (min-width: 440px){
+    .navbar-content{
+      justify-content: space-around;
+    }
+  }
+  
