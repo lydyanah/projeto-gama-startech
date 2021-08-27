@@ -1,17 +1,41 @@
 import { Field, Form, Formik } from "formik";
 import { TextField } from "formik-material-ui";
-import { Button, Grid, Paper, Typography } from "@material-ui/core";
+import { Button, Grid, Paper, Typography, MenuItem } from "@material-ui/core";
 import { KeyboardDatePicker } from "formik-material-ui-pickers";
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
 import brLocale from "date-fns/locale/pt-BR";
+import React from "react";
 // import * as Yup from "yup";
+//import axios from "axios";
 import Page from "../../components/Page/Page";
 import formStyles from "./formStyles";
 import "./styles.css";
 
 const Home = () => {
-  const initialValues = {};
+  const initialValues = {
+    nome: "",
+    cargo: "",
+    dataNascimento: new Date(),
+    estadoCivil: "selecione",
+    genero: "selecione",
+    cep: "",
+    endereco: "",
+    numero: "",
+    bairro: "",
+    cidade: "",
+    uf: "",
+    celular: "",
+    email: "",
+    telefone1: "",
+    telefone2: "",
+    contato: "",
+    identidade: "",
+    cpf: "",
+    veiculo: "selecione",
+    habilitacao: "selecione",
+    categoria: "",
+  };
 
   const classes = formStyles();
 
@@ -52,235 +76,225 @@ const Home = () => {
                             </Typography>
                           </Grid>
                           <Grid item className={classes.field} xs={7}>
-                            <Typography variant="h2" className={classes.h2}>
-                              Nome Completo
-                            </Typography>
+                            <label htmlFor="nome">Nome Completo</label>
                             <Field
                               className={classes.field}
                               name="nome"
+                              id="nome"
                               component={TextField}
                               variant="outlined"
-                              size="small"
-                              fullWidth
+                              fullWidth={true}
                               InputProps={{ classes: { input: classes.input } }}
                             />
                           </Grid>
                           <Grid item className={classes.field} xs={4}>
-                            <Typography variant="h2" className={classes.h2}>
-                              Cargo Pretendido
-                            </Typography>
+                            <label htmlFor="cargo">Cargo Pretendido</label>
                             <Field
                               className={classes.field}
                               name="cargo"
+                              id="cargo"
                               component={TextField}
                               variant="outlined"
-                              size="small"
-                              fullWidth
+                              fullWidth={true}
                               InputProps={{ classes: { input: classes.input } }}
                             />
                           </Grid>
                           <Grid item className={classes.field} xs={3}>
-                            <Typography variant="h2" className={classes.h2}>
+                            <label htmlFor="dataNascimento">
                               Data de Nascimento
-                            </Typography>
+                            </label>
                             <Field
                               className={classes.field}
-                              component={KeyboardDatePicker}
                               name="dataNascimento"
-                              format="dd/MM/yy"
+                              id="dataNascimento"
+                              component={KeyboardDatePicker}
+                              format="dd/MM/yyyy"
                               disableFuture="true"
                               inputVariant="outlined"
-                              size="small"
                               cancelLabel="CANCELAR"
-                              InputProps={{ classes: { input: classes.input } }}
-                            />
-                          </Grid>
-                          <Grid item className={classes.field} xs={4}>
-                            <Typography variant="h2" className={classes.h2}>
-                              Estado Civil
-                            </Typography>
-                            <Field
-                              className={classes.field}
-                              component={TextField}
-                              name="estadoCivil"
-                              variant="outlined"
-                              size="small"
-                              InputProps={{ classes: { input: classes.input } }}
-                              SelectProps={{
-                                native: true,
+                              InputProps={{
+                                classes: {
+                                  input: classes.input,
+                                  adornedEnd: classes.adornedEnd,
+                                },
                               }}
+                              KeyboardButtonProps={{ size: "small" }}
                             />
                           </Grid>
                           <Grid item className={classes.field} xs={4}>
-                            <Typography variant="h2" className={classes.h2}>
-                              Gênero
-                            </Typography>
+                            <label htmlFor="estadoCivil">Estado Civil</label>
                             <Field
                               className={classes.field}
+                              name="estadoCivil"
+                              id="estadoCivil"
                               component={TextField}
-                              name="genero"
                               variant="outlined"
-                              size="small"
+                              select={true}
+                              fullWidth={true}
                               InputProps={{ classes: { input: classes.input } }}
-                            />
+                            >
+                              <MenuItem value="selecione">
+                                <em>Selecione</em>
+                              </MenuItem>
+                              <MenuItem value="casado">Casado(o)</MenuItem>
+                              <MenuItem value="solteiro">Solteiro(a)</MenuItem>
+                              <MenuItem value="divorciado">
+                                Divorciado(a)
+                              </MenuItem>
+                              <MenuItem value="viuvo">Viúva(o)</MenuItem>
+                              <MenuItem value="outro">Outro</MenuItem>
+                              <MenuItem value="pnd">Prefiro não dizer</MenuItem>
+                            </Field>
+                          </Grid>
+                          <Grid item className={classes.field} xs={4}>
+                            <label htmlFor="genero">Gênero</label>
+                            <Field
+                              className={classes.field}
+                              name="genero"
+                              id="genero"
+                              component={TextField}
+                              variant="outlined"
+                              select={true}
+                              fullWidth={true}
+                              InputProps={{ classes: { input: classes.input } }}
+                            >
+                              <MenuItem value="selecione">
+                                <em>Selecione</em>
+                              </MenuItem>
+                              <MenuItem value="feminino">Feminino</MenuItem>
+                              <MenuItem value="masculino">Masculino</MenuItem>
+                              <MenuItem value="outro">Outro</MenuItem>
+                              <MenuItem value="pnd">Prefiro não dizer</MenuItem>
+                            </Field>
                           </Grid>
                           <Grid item className={classes.field} xs={2}>
-                            <Typography variant="h2" className={classes.h2}>
-                              CEP
-                            </Typography>
+                            <label htmlFor="cep">CEP</label>
                             <Field
                               className={classes.field}
-                              component={TextField}
                               name="cep"
-                              type="text"
+                              id="cep"
+                              component={TextField}
                               variant="outlined"
-                              size="small"
-                              fullWidth
+                              fullWidth={true}
                               InputProps={{ classes: { input: classes.input } }}
                             />
                           </Grid>
                           <Grid item className={classes.field} xs={8}>
-                            <Typography variant="h2" className={classes.h2}>
-                              Endereço
-                            </Typography>
+                            <label htmlFor="endereco">Endereço</label>
                             <Field
                               className={classes.field}
+                              name="endereco"
+                              id="endereco"
                               component={TextField}
-                              name="endereço"
-                              type="text"
                               variant="outlined"
-                              size="small"
-                              fullWidth
+                              fullWidth={true}
                               InputProps={{ classes: { input: classes.input } }}
                             />
                           </Grid>
                           <Grid item className={classes.field} xs={1}>
-                            <Typography variant="h2" className={classes.h2}>
-                              Nº
-                            </Typography>
+                            <label htmlFor="numero">Nº</label>
                             <Field
                               className={classes.field}
-                              component={TextField}
                               name="numero"
-                              type="text"
+                              id="numero"
+                              component={TextField}
                               variant="outlined"
-                              size="small"
-                              fullWidth
+                              fullWidth={true}
                               InputProps={{ classes: { input: classes.input } }}
                             />
                           </Grid>
                           <Grid item className={classes.field} xs={4}>
-                            <Typography variant="h2" className={classes.h2}>
-                              Bairro
-                            </Typography>
+                            <label htmlFor="bairro">Bairro</label>
                             <Field
                               className={classes.field}
-                              component={TextField}
                               name="bairro"
-                              type="text"
+                              id="bairro"
+                              component={TextField}
                               variant="outlined"
-                              size="small"
-                              fullWidth
+                              fullWidth={true}
                               InputProps={{ classes: { input: classes.input } }}
                             />
                           </Grid>
                           <Grid item className={classes.field} xs={6}>
-                            <Typography variant="h2" className={classes.h2}>
-                              Cidade
-                            </Typography>
+                            <label htmlFor="cidade">Cidade</label>
                             <Field
                               className={classes.field}
-                              component={TextField}
                               name="cidade"
-                              type="text"
+                              id="cidade"
+                              component={TextField}
                               variant="outlined"
-                              size="small"
-                              fullWidth
+                              fullWidth={true}
                               InputProps={{ classes: { input: classes.input } }}
                             />
                           </Grid>
                           <Grid item className={classes.field} xs={1}>
-                            <Typography variant="h2" className={classes.h2}>
-                              Estado
-                            </Typography>
+                            <label htmlFor="uf">Estado</label>
                             <Field
                               className={classes.field}
+                              name="uf"
+                              id="uf"
                               component={TextField}
-                              name="cidade"
-                              type="text"
                               variant="outlined"
-                              size="small"
-                              fullWidth
+                              fullWidth={true}
                               InputProps={{ classes: { input: classes.input } }}
                             />
                           </Grid>
-                          <Grid item className={classes.field} xs>
-                            <Typography variant="h2" className={classes.h2}>
-                              Telefone Fixo 1
-                            </Typography>
+                          <Grid item className={classes.field} xs={3}>
+                            <label htmlFor="celular">Celular</label>
                             <Field
                               className={classes.field}
-                              component={TextField}
-                              name="telefone"
-                              type="text"
-                              variant="outlined"
-                              size="small"
-                              InputProps={{ classes: { input: classes.input } }}
-                            />
-                          </Grid>
-                          <Grid item className={classes.field} xs>
-                            <Typography variant="h2" className={classes.h2}>
-                              Telefone Fixo 2
-                            </Typography>
-                            <Field
-                              className={classes.field}
-                              component={TextField}
-                              name="telefone"
-                              type="text"
-                              variant="outlined"
-                              size="small"
-                              InputProps={{ classes: { input: classes.input } }}
-                            />
-                          </Grid>
-                          <Grid item className={classes.field} xs>
-                            <Typography variant="h2" className={classes.h2}>
-                              Celular
-                            </Typography>
-                            <Field
-                              className={classes.field}
-                              component={TextField}
                               name="celular"
-                              type="text"
+                              id="celular"
+                              component={TextField}
                               variant="outlined"
-                              size="small"
                               InputProps={{ classes: { input: classes.input } }}
                             />
                           </Grid>
-                          <Grid item className={classes.field} xs>
-                            <Typography variant="h2" className={classes.h2}>
-                              Contato
-                            </Typography>
+                          <Grid item className={classes.field} xs={5}>
+                            <label htmlFor="email">E-mail</label>
                             <Field
                               className={classes.field}
-                              component={TextField}
-                              name="contato"
-                              type="text"
-                              variant="outlined"
-                              size="small"
-                              InputProps={{ classes: { input: classes.input } }}
-                            />
-                          </Grid>
-                          <Grid item className={classes.field} xs>
-                            <Typography variant="h2" className={classes.h2}>
-                              E-mail
-                            </Typography>
-                            <Field
-                              className={classes.field}
-                              component={TextField}
                               name="email"
-                              type="email"
+                              id="email"
+                              component={TextField}
                               variant="outlined"
-                              size="small"
+                              InputProps={{ classes: { input: classes.input } }}
+                            />
+                          </Grid>
+                          <Grid item className={classes.field} xs={3}>
+                            <label htmlFor="telefone1">
+                              Telefone Residencial
+                            </label>
+                            <Field
+                              className={classes.field}
+                              name="telefone1"
+                              id="telefone1"
+                              component={TextField}
+                              variant="outlined"
+                              InputProps={{ classes: { input: classes.input } }}
+                            />
+                          </Grid>
+                          <Grid item className={classes.field} xs>
+                            <label htmlFor="telefone2">
+                              Telefone para recados
+                            </label>
+                            <Field
+                              className={classes.field}
+                              name="telefone2"
+                              id="telefone2"
+                              component={TextField}
+                              variant="outlined"
+                              InputProps={{ classes: { input: classes.input } }}
+                            />
+                          </Grid>
+                          <Grid item className={classes.field} xs>
+                            <label htmlFor="contato">Falar com</label>
+                            <Field
+                              className={classes.field}
+                              name="contato"
+                              id="contato"
+                              component={TextField}
+                              variant="outlined"
                               InputProps={{ classes: { input: classes.input } }}
                             />
                           </Grid>
@@ -292,54 +306,73 @@ const Home = () => {
                             </Typography>
                           </Grid>
                           <Grid item className={classes.field} xs>
-                            <Typography variant="h2" className={classes.h2}>
-                              Identidade
-                            </Typography>
+                            <label htmlFor="identidade">Identidade</label>
                             <Field
                               className={classes.field}
                               name="identidade"
+                              id="identidade"
                               component={TextField}
                               variant="outlined"
-                              size="small"
                               InputProps={{ classes: { input: classes.input } }}
                             />
                           </Grid>
                           <Grid item className={classes.field} xs>
-                            <Typography variant="h2" className={classes.h2}>
-                              CPF
-                            </Typography>
+                            <label htmlFor="cpf">CPF</label>
                             <Field
                               className={classes.field}
                               name="cpf"
+                              id="cpf"
                               component={TextField}
                               variant="outlined"
-                              size="small"
                               InputProps={{ classes: { input: classes.input } }}
                             />
                           </Grid>
                           <Grid item className={classes.field} xs>
-                            <Typography variant="h2" className={classes.h2}>
-                              Possui veículo?
-                            </Typography>
+                            <label htmlFor="veiculo">Possui veículo?</label>
                             <Field
                               className={classes.field}
-                              component={TextField}
                               name="veiculo"
+                              id="veiculo"
+                              component={TextField}
                               variant="outlined"
-                              size="small"
+                              select={true}
+                              fullWidth={true}
                               InputProps={{ classes: { input: classes.input } }}
-                            />
+                            >
+                              <MenuItem value="selecione">
+                                <em>Selecione</em>
+                              </MenuItem>
+                              <MenuItem value="sim">Sim</MenuItem>
+                              <MenuItem value="nao">Não</MenuItem>
+                            </Field>
                           </Grid>
                           <Grid item className={classes.field} xs>
-                            <Typography variant="h2" className={classes.h2}>
-                              Habilitação
-                            </Typography>
+                            <label htmlFor="habilitacao">Habilitação</label>
                             <Field
                               className={classes.field}
+                              name="habilitacao"
+                              id="habilitacao"
                               component={TextField}
-                              name="habilitação"
                               variant="outlined"
-                              size="small"
+                              select={true}
+                              fullWidth={true}
+                              InputProps={{ classes: { input: classes.input } }}
+                            >
+                              <MenuItem value="selecione">
+                                <em>Selecione</em>
+                              </MenuItem>
+                              <MenuItem value="sim">Sim</MenuItem>
+                              <MenuItem value="nao">Não</MenuItem>
+                            </Field>
+                          </Grid>
+                          <Grid item className={classes.field} xs>
+                            <label htmlFor="categoria">Categoria</label>
+                            <Field
+                              className={classes.field}
+                              name="categoria"
+                              id="categoria"
+                              component={TextField}
+                              variant="outlined"
                               InputProps={{ classes: { input: classes.input } }}
                             />
                           </Grid>

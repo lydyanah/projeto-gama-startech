@@ -28,9 +28,20 @@ const formStyles = makeStyles(theme => ({
     },
 
     input:{           
-        padding: '0 10px',
-        height: 35,
-  },
+        padding: '8px',
+    },
+
+   MuiIconButton:{
+        padding: '0px',
+    },
+
+    adornedEnd: {
+        paddingRight: '5px',
+    },
+    
+    positionEnd: {
+        margin: '0px'
+    },
     
     label: {
         textTransform: 'capitalize',
