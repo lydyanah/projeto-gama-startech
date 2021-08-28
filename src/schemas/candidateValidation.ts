@@ -11,7 +11,8 @@ const candidateValidation = Yup.object().shape({
     numero: Yup.number().required('Digite o nº'),
     celular: Yup.number().required('Digite seu nº de celular'),
     email: Yup.string().required('Digite seu e-mail').email('Formato inválido'),
-    cpf: Yup.number().required('Digite seu CPF')
+    cpf: Yup.number().required('Digite seu CPF'),
+    categoria: Yup.string().max(3,'Máximo 3 caracteres').matches(/^[a-zA-Z]+$/, 'Somente letras')
 });
 
 export default candidateValidation;
