@@ -5,9 +5,8 @@ import { KeyboardDatePicker } from "formik-material-ui-pickers";
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
 import brLocale from "date-fns/locale/pt-BR";
-import React from "react";
 // import * as Yup from "yup";
-//import axios from "axios";
+import api from "../../services/api";
 import Page from "../../components/Page/Page";
 import formStyles from "./formStyles";
 import "./styles.css";
@@ -20,7 +19,7 @@ const Home = () => {
     estadoCivil: "selecione",
     genero: "selecione",
     cep: "",
-    endereco: "",
+    logradouro: "",
     numero: "",
     bairro: "",
     cidade: "",
@@ -39,26 +38,79 @@ const Home = () => {
 
   const classes = formStyles();
 
+  const onBlurCep = (ev: any, setFieldValue: any) => {
+    const { value } = ev.target;
+
+    const cep = value?.replace(/[^0-9]/g, "");
+
+    if (cep?.length !== 8) {
+      return;
+    }
+
+    fetch(`https://viacep.com.br/ws/${cep}/json/`)
+      .then((res) => res.json())
+      .then((data) => {
+        setFieldValue("logradouro", data.logradouro);
+        setFieldValue("bairro", data.bairro);
+        setFieldValue("cidade", data.localidade);
+        setFieldValue("uf", data.uf);
+      });
+  };
+
   return (
     <>
       <Page>
         <section className="home">
           <section className="conteúdo">
-            <Typography> Aqui vai um conteúdo</Typography>
+            <h1>
+              Cadastre-se em nosso Banco de Currículos e encontre a sua próxima
+              oportunidade!
+            </h1>
           </section>
 
           <section className="formulário">
             <Formik
               initialValues={initialValues}
-              onSubmit={(values, { setSubmitting }) => {
-                setTimeout(() => {
+              onSubmit={ async (values, { setSubmitting }) => {
+                try {
+                  const response = await api.post("/register", {
+                    nome: values.nome,
+                    cargo: values.cargo,
+                    dataNascimento: values.dataNascimento,
+                    estadoCivil: values.estadoCivil,
+                    genero: values.genero,
+                    cep: values.cep,
+                    logradouro: values.logradouro,
+                    numero: values.numero,
+                    bairro: values.bairro,
+                    cidade: values.cidade,
+                    uf: values.uf,
+                    celular: values.celular,
+                    email: values.email,
+                    telefone1: values.telefone1,
+                    telefone2: values.telefone2,
+                    contato: values.contato,
+                    identidade: values.identidade,
+                    cpf: values.cpf,
+                    veiculo: values.veiculo,
+                    habilitacao: values.habilitacao,
+                    categoria: values.categoria,
+                  })
+                  if (response.status === 200) {
+                    alert("Cadastro realizado com sucesso")
+                    console.log("Cadastrado com sucesso")
+                  }
+                  else {                    
+                    console.log("Ocorreu uma falha")
+                  }
                   setSubmitting(false);
-                  alert(JSON.stringify(values, null, 2));
-                }, 500);
+                } catch (error) {
+                  console.log(`Ocorreu uma falha ${error}`)
+                }
               }}
               // validationSchema={}
             >
-              {({ submitForm, isSubmitting }) => (
+              {({ setFieldValue, submitForm, isSubmitting }) => (
                 <Grid container className={classes.root}>
                   <MuiPickersUtilsProvider
                     utils={DateFnsUtils}
@@ -177,14 +229,15 @@ const Home = () => {
                               variant="outlined"
                               fullWidth={true}
                               InputProps={{ classes: { input: classes.input } }}
+                              onBlur={(ev: any) => onBlurCep(ev, setFieldValue)}
                             />
                           </Grid>
                           <Grid item className={classes.field} xs={8}>
-                            <label htmlFor="endereco">Endereço</label>
+                            <label htmlFor="logradouro">Endereço</label>
                             <Field
                               className={classes.field}
-                              name="endereco"
-                              id="endereco"
+                              name="logradouro"
+                              id="logradouro"
                               component={TextField}
                               variant="outlined"
                               fullWidth={true}

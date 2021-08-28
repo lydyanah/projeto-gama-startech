@@ -11,11 +11,7 @@ const Page: FunctionComponent<Props> = ({ children }) => {
       <div className="navbar-fixed">
         <div className="navbar-content">
           <h1>JobsNet</h1>
-          <div className="menu">
-            <nav className="menu">
-              <a href="/">Teste</a>
-            </nav>
-          </div>
+          <div className="menu"></div>
         </div>
       </div>
       <main>{children}</main>

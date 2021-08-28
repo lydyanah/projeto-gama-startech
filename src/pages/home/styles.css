@@ -6,8 +6,14 @@ section.home{
 section.conteúdo{
     display: flex;
     justify-content: center;
+    align-items: center;
     min-width: 40%;
     height: 500px;
+}
+
+section.conteúdo h1{
+    text-align: center;
+    font-size: 2em;
 }
 
 section.formulário{
