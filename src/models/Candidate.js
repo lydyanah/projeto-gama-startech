@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const CandidateSchema = new mongoose.Schema({
     nome: { type: String, unique: false, required: true },
     cargo: { type: String, unique: false, required: true },
-    dataNascimento: { type: Date, unique: false, required: true },
+    dataNascimento: { type: String, unique: false, required: true },
     estadoCivil: { type: String, unique: false, required: false },
     genero: { type: String, unique: false, required: false },
     cep: { type: String, unique: false, required: true },
