@@ -5,8 +5,10 @@ const swaggerDocs = require('./swagger.json');
 const routes = require('./routes');
 const app = express();
 const cors = require('cors');
+require('dotenv').config();
 
-mongoose.connect('mongodb+srv://admin:adminpassword@cluster0.mz8w0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+mongoose.connect(
+    process.env.MONGO_URL, {
 });
 
 app.use(cors());
