@@ -1,0 +1,58 @@
+{
+  "openapi": "3.0.0",
+
+  "info": {
+    "title": "API do Desafio Start Tech Gama Academy",
+    "description": "essa é a api massa do Desafio Start Tech Gama Academy",
+    "version": "0.0.1"
+  },
+
+  "servers": [
+    {
+      "url": "http://localhost:5000",
+      "description": "Ambiente de desenvolvimento"
+    }
+  ],
+
+  "paths": {
+    "/register": {
+      "post": {
+        "summary": "Banco de Currículos - Cadastro de candidato",
+        "description": "Rota de cadastro de candidato",
+        "tags": ["candidato"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "nome": {
+                    "type": "string"
+                  },
+                  "genero": {
+                    "type": "string"
+                  },
+                  "cep": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  }
+                }
+              },
+              "examples": {
+                "Candidato": {
+                  "value": {
+                    "nome": "Maria da Silva",
+                    "genero": "Feminino",
+                    "cep": "00000-000",
+                    "email": "maria.silva6464687@gmail.com"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
