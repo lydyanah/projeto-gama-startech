@@ -31,7 +31,11 @@ const formStyles = makeStyles(theme => ({
         padding: '8px',
     },
 
-   MuiIconButton:{
+    helperText: {
+        margin: '0px',
+    },
+
+    MuiIconButton:{
         padding: '0px',
     },
 

@@ -5,7 +5,7 @@ import { KeyboardDatePicker } from "formik-material-ui-pickers";
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
 import brLocale from "date-fns/locale/pt-BR";
-// import * as Yup from "yup";
+import candidateValidation from "../../schemas/candidateValidation";
 import api from "../../services/api";
 import Page from "../../components/Page/Page";
 import formStyles from "./formStyles";
@@ -15,7 +15,7 @@ const Home = () => {
   const initialValues = {
     nome: "",
     cargo: "",
-    dataNascimento: new Date(),
+    dataNascimento: null,
     estadoCivil: "selecione",
     genero: "selecione",
     cep: "",
@@ -41,11 +41,7 @@ const Home = () => {
   const onBlurCep = (ev: any, setFieldValue: any) => {
     const { value } = ev.target;
 
-    const cep = value?.replace(/[^0-9]/g, "");
-
-    if (cep?.length !== 8) {
-      return;
-    }
+    const cep = value;
 
     fetch(`https://viacep.com.br/ws/${cep}/json/`)
       .then((res) => res.json())
@@ -71,7 +67,7 @@ const Home = () => {
           <section className="formulário">
             <Formik
               initialValues={initialValues}
-              onSubmit={ async (values, { setSubmitting }) => {
+              onSubmit={async (values, { setSubmitting }) => {
                 try {
                   const response = await api.post("/register", {
                     nome: values.nome,
@@ -95,20 +91,19 @@ const Home = () => {
                     veiculo: values.veiculo,
                     habilitacao: values.habilitacao,
                     categoria: values.categoria,
-                  })
+                  });
                   if (response.status === 200) {
-                    alert("Cadastro realizado com sucesso")
-                    console.log("Cadastrado com sucesso")
-                  }
-                  else {                    
-                    console.log("Ocorreu uma falha")
+                    alert("Cadastro realizado com sucesso");
+                    console.log("Cadastrado com sucesso");
+                  } else {
+                    console.log("Ocorreu uma falha");
                   }
                   setSubmitting(false);
                 } catch (error) {
-                  console.log(`Ocorreu uma falha ${error}`)
+                  console.log(`Ocorreu uma falha ${error}`);
                 }
               }}
-              // validationSchema={}
+              validationSchema={candidateValidation}
             >
               {({ setFieldValue, submitForm, isSubmitting }) => (
                 <Grid container className={classes.root}>
@@ -137,6 +132,9 @@ const Home = () => {
                               variant="outlined"
                               fullWidth={true}
                               InputProps={{ classes: { input: classes.input } }}
+                              FormHelperTextProps={{
+                                classes: { root: classes.helperText },
+                              }}
                             />
                           </Grid>
                           <Grid item className={classes.field} xs={4}>
@@ -149,6 +147,9 @@ const Home = () => {
                               variant="outlined"
                               fullWidth={true}
                               InputProps={{ classes: { input: classes.input } }}
+                              FormHelperTextProps={{
+                                classes: { root: classes.helperText },
+                              }}
                             />
                           </Grid>
                           <Grid item className={classes.field} xs={3}>
@@ -164,6 +165,7 @@ const Home = () => {
                               disableFuture="true"
                               inputVariant="outlined"
                               cancelLabel="CANCELAR"
+                              invalidDateMessage=""
                               InputProps={{
                                 classes: {
                                   input: classes.input,
@@ -171,6 +173,9 @@ const Home = () => {
                                 },
                               }}
                               KeyboardButtonProps={{ size: "small" }}
+                              FormHelperTextProps={{
+                                classes: { root: classes.helperText },
+                              }}
                             />
                           </Grid>
                           <Grid item className={classes.field} xs={4}>
@@ -184,6 +189,9 @@ const Home = () => {
                               select={true}
                               fullWidth={true}
                               InputProps={{ classes: { input: classes.input } }}
+                              FormHelperTextProps={{
+                                classes: { root: classes.helperText },
+                              }}
                             >
                               <MenuItem value="selecione">
                                 <em>Selecione</em>
@@ -209,6 +217,9 @@ const Home = () => {
                               select={true}
                               fullWidth={true}
                               InputProps={{ classes: { input: classes.input } }}
+                              FormHelperTextProps={{
+                                classes: { root: classes.helperText },
+                              }}
                             >
                               <MenuItem value="selecione">
                                 <em>Selecione</em>
@@ -228,8 +239,12 @@ const Home = () => {
                               component={TextField}
                               variant="outlined"
                               fullWidth={true}
-                              InputProps={{ classes: { input: classes.input } }}
                               onBlur={(ev: any) => onBlurCep(ev, setFieldValue)}
+                              InputProps={{ classes: { input: classes.input } }}
+                              FormHelperTextProps={{
+                                classes: { root: classes.helperText },
+                              }}
+                              required
                             />
                           </Grid>
                           <Grid item className={classes.field} xs={8}>
@@ -242,6 +257,9 @@ const Home = () => {
                               variant="outlined"
                               fullWidth={true}
                               InputProps={{ classes: { input: classes.input } }}
+                              FormHelperTextProps={{
+                                classes: { root: classes.helperText },
+                              }}
                             />
                           </Grid>
                           <Grid item className={classes.field} xs={1}>
@@ -254,6 +272,9 @@ const Home = () => {
                               variant="outlined"
                               fullWidth={true}
                               InputProps={{ classes: { input: classes.input } }}
+                              FormHelperTextProps={{
+                                classes: { root: classes.helperText },
+                              }}
                             />
                           </Grid>
                           <Grid item className={classes.field} xs={4}>
@@ -266,6 +287,9 @@ const Home = () => {
                               variant="outlined"
                               fullWidth={true}
                               InputProps={{ classes: { input: classes.input } }}
+                              FormHelperTextProps={{
+                                classes: { root: classes.helperText },
+                              }}
                             />
                           </Grid>
                           <Grid item className={classes.field} xs={6}>
@@ -278,6 +302,9 @@ const Home = () => {
                               variant="outlined"
                               fullWidth={true}
                               InputProps={{ classes: { input: classes.input } }}
+                              FormHelperTextProps={{
+                                classes: { root: classes.helperText },
+                              }}
                             />
                           </Grid>
                           <Grid item className={classes.field} xs={1}>
@@ -290,6 +317,9 @@ const Home = () => {
                               variant="outlined"
                               fullWidth={true}
                               InputProps={{ classes: { input: classes.input } }}
+                              FormHelperTextProps={{
+                                classes: { root: classes.helperText },
+                              }}
                             />
                           </Grid>
                           <Grid item className={classes.field} xs={3}>
@@ -301,6 +331,9 @@ const Home = () => {
                               component={TextField}
                               variant="outlined"
                               InputProps={{ classes: { input: classes.input } }}
+                              FormHelperTextProps={{
+                                classes: { root: classes.helperText },
+                              }}
                             />
                           </Grid>
                           <Grid item className={classes.field} xs={5}>
@@ -312,6 +345,9 @@ const Home = () => {
                               component={TextField}
                               variant="outlined"
                               InputProps={{ classes: { input: classes.input } }}
+                              FormHelperTextProps={{
+                                classes: { root: classes.helperText },
+                              }}
                             />
                           </Grid>
                           <Grid item className={classes.field} xs={3}>
@@ -325,6 +361,9 @@ const Home = () => {
                               component={TextField}
                               variant="outlined"
                               InputProps={{ classes: { input: classes.input } }}
+                              FormHelperTextProps={{
+                                classes: { root: classes.helperText },
+                              }}
                             />
                           </Grid>
                           <Grid item className={classes.field} xs>
@@ -338,6 +377,9 @@ const Home = () => {
                               component={TextField}
                               variant="outlined"
                               InputProps={{ classes: { input: classes.input } }}
+                              FormHelperTextProps={{
+                                classes: { root: classes.helperText },
+                              }}
                             />
                           </Grid>
                           <Grid item className={classes.field} xs>
@@ -349,6 +391,9 @@ const Home = () => {
                               component={TextField}
                               variant="outlined"
                               InputProps={{ classes: { input: classes.input } }}
+                              FormHelperTextProps={{
+                                classes: { root: classes.helperText },
+                              }}
                             />
                           </Grid>
                         </Grid>
@@ -367,6 +412,9 @@ const Home = () => {
                               component={TextField}
                               variant="outlined"
                               InputProps={{ classes: { input: classes.input } }}
+                              FormHelperTextProps={{
+                                classes: { root: classes.helperText },
+                              }}
                             />
                           </Grid>
                           <Grid item className={classes.field} xs>
@@ -378,6 +426,9 @@ const Home = () => {
                               component={TextField}
                               variant="outlined"
                               InputProps={{ classes: { input: classes.input } }}
+                              FormHelperTextProps={{
+                                classes: { root: classes.helperText },
+                              }}
                             />
                           </Grid>
                           <Grid item className={classes.field} xs>
@@ -391,6 +442,9 @@ const Home = () => {
                               select={true}
                               fullWidth={true}
                               InputProps={{ classes: { input: classes.input } }}
+                              FormHelperTextProps={{
+                                classes: { root: classes.helperText },
+                              }}
                             >
                               <MenuItem value="selecione">
                                 <em>Selecione</em>
@@ -410,6 +464,9 @@ const Home = () => {
                               select={true}
                               fullWidth={true}
                               InputProps={{ classes: { input: classes.input } }}
+                              FormHelperTextProps={{
+                                classes: { root: classes.helperText },
+                              }}
                             >
                               <MenuItem value="selecione">
                                 <em>Selecione</em>
@@ -427,6 +484,9 @@ const Home = () => {
                               component={TextField}
                               variant="outlined"
                               InputProps={{ classes: { input: classes.input } }}
+                              FormHelperTextProps={{
+                                classes: { root: classes.helperText },
+                              }}
                             />
                           </Grid>
                         </Grid>
