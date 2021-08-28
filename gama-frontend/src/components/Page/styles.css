@@ -10,12 +10,10 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    padding: 10px 25px;
+    padding: 10px 25px;    
+    font-size: 2em;
   }
   
-  .menuItem {
-    padding: 10px;
-  }
   
   footer{
     background-color: rgb(76, 223, 215);
