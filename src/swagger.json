@@ -10,7 +10,11 @@
   "servers": [
     {
       "url": "http://localhost:5000",
-      "description": "Ambiente de desenvolvimento"
+      "description": "Ambiente de Desenvolvimento"
+    },
+    {
+      "url": "https://server-desafio-gama-startech.herokuapp.com/",
+      "description": "Ambiente de Produção"
     }
   ],
 
