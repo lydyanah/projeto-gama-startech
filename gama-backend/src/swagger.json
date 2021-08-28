@@ -3,14 +3,18 @@
 
   "info": {
     "title": "API do Desafio Start Tech Gama Academy",
-    "description": "essa é a api massa do Desafio Start Tech Gama Academy",
+    "description": "API do Desafio Start Tech Gama Academy",
     "version": "0.0.1"
   },
 
   "servers": [
     {
       "url": "http://localhost:5000",
-      "description": "Ambiente de desenvolvimento"
+      "description": "Ambiente de Desenvolvimento"
+    },
+    {
+      "url": "https://server-desafio-gama-startech.herokuapp.com/",
+      "description": "Ambiente de Produção"
     }
   ],
 
@@ -24,8 +28,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "properties": {
+                "properties": {                  
                   "nome": {
+                    "type": "string"
+                  },
+                  "cargo": {
+                    "type": "string"
+                  },
+                  "dataNascimento": {
+                    "type": "string"
+                  },
+                  "estadoCivil": {
                     "type": "string"
                   },
                   "genero": {
@@ -34,18 +47,77 @@
                   "cep": {
                     "type": "string"
                   },
+                  "logradouro": {
+                    "type": "string"
+                  },
+                 "numero": {
+                  "type": "string"
+                },
+                  "bairro": {
+                    "type": "string"
+                  },
+                  "cidade": {
+                    "type": "string"
+                  },
+                  "uf": {
+                    "type": "string"
+                  },
+                  "celular": {
+                    "type": "string"
+                  },
                   "email": {
                     "type": "string"
-                  }
+                  },
+                  "telefone1": {
+                    "type": "string"
+                  },
+                  "telefone2": {
+                    "type": "string"
+                  },
+                  "contato": {
+                    "type": "string"
+                  },
+                  "identidade": {
+                    "type": "string"
+                  },
+                  "cpf": {
+                    "type": "string"
+                  },
+                  "veiculo": {
+                    "type": "string"
+                  },
+                  "habilitacao": {
+                    "type": "string"
+                  },
+                  "categoria": {
+                    "type": "string"
+                  }                
                 }
               },
               "examples": {
-                "Candidato": {
+                "Candidato Teste": {
                   "value": {
-                    "nome": "Maria da Silva",
-                    "genero": "Feminino",
-                    "cep": "00000-000",
-                    "email": "maria.silva6464687@gmail.com"
+                    "nome": "Seu Nome Completo",              
+                    "cargo": "Desenvolvedora Frontend",                
+                    "dataNascimento": "1993-12-31",            
+                    "estadoCivil": "Solteira",               
+                    "genero": "Feminino",               
+                    "cep": "00000000",                
+                    "logradouro": "R. Primavera",               
+                    "numero":"2021",             
+                    "bairro": "Jardim das Estações",
+                    "cidade": "São Paulo",
+                    "uf": "SP",
+                    "celular": "11999999999",              
+                    "email": "seu@email.com",              
+                    "telefone1": "1133333333",
+                    "telefone2": "",                
+                    "contato": "",                
+                    "identidade": "888888888",                
+                    "cpf": "99999999999",                
+                    "veiculo": "Não",                
+                    "habilitacao": "Não",              
+                    "categoria": ""
                   }
                 }
               }
