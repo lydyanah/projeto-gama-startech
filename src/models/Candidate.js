@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const CandidateSchema = new mongoose.Schema({
-    id: { type: Number, unique: true, required: false},
     nome: { type: String, unique: false, required: true },
     cargo: { type: String, unique: false, required: true },
     dataNascimento: { type: Date, unique: false, required: true },
