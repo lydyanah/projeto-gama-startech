@@ -93,7 +93,7 @@
               "examples": {
                 "Candidato Teste": {
                   "value": {
-                    "nome": "Maria da Silva",              
+                    "nome": "Seu Nome Completo",              
                     "cargo": "Desenvolvedora Frontend",                
                     "dataNascimento": "31-12-1993",            
                     "estadoCivil": "Solteira",               
@@ -105,7 +105,7 @@
                     "cidade": "São Paulo",
                     "uf": "SP",
                     "celular": "11999999999",              
-                    "email": "maria.silva35676@gmail.com",              
+                    "email": "seu@email.com",              
                     "telefone1": "1133333333",
                     "telefone2": "",                
                     "contato": "",                
