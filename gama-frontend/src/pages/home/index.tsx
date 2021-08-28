@@ -16,8 +16,8 @@ const Home = () => {
     nome: "",
     cargo: "",
     dataNascimento: null,
-    estadoCivil: "selecione",
-    genero: "selecione",
+    estadoCivil: "Selecione",
+    genero: "Selecione",
     cep: "",
     logradouro: "",
     numero: "",
@@ -31,8 +31,8 @@ const Home = () => {
     contato: "",
     identidade: "",
     cpf: "",
-    veiculo: "selecione",
-    habilitacao: "selecione",
+    veiculo: "Selecione",
+    habilitacao: "Selecione",
     categoria: "",
   };
 
@@ -193,17 +193,15 @@ const Home = () => {
                                 classes: { root: classes.helperText },
                               }}
                             >
-                              <MenuItem value="selecione">
+                              <MenuItem value="Selecione">
                                 <em>Selecione</em>
                               </MenuItem>
-                              <MenuItem value="casado">Casado(o)</MenuItem>
-                              <MenuItem value="solteiro">Solteiro(a)</MenuItem>
-                              <MenuItem value="divorciado">
-                                Divorciado(a)
-                              </MenuItem>
-                              <MenuItem value="viuvo">Viúva(o)</MenuItem>
-                              <MenuItem value="outro">Outro</MenuItem>
-                              <MenuItem value="pnd">Prefiro não dizer</MenuItem>
+                              <MenuItem value="Casado">Casado(a)</MenuItem>
+                              <MenuItem value="Solteiro">Solteiro(a)</MenuItem>
+                              <MenuItem value="Divorciado">Divorciado(a)</MenuItem>
+                              <MenuItem value="Viuvo">Viúvo(a)</MenuItem>
+                              <MenuItem value="Outro">Outro</MenuItem>
+                              <MenuItem value="Prefiro nao dizer">Prefiro não dizer</MenuItem>
                             </Field>
                           </Grid>
                           <Grid item className={classes.field} xs={4}>
@@ -221,13 +219,13 @@ const Home = () => {
                                 classes: { root: classes.helperText },
                               }}
                             >
-                              <MenuItem value="selecione">
+                              <MenuItem value="Selecione">
                                 <em>Selecione</em>
                               </MenuItem>
-                              <MenuItem value="feminino">Feminino</MenuItem>
-                              <MenuItem value="masculino">Masculino</MenuItem>
-                              <MenuItem value="outro">Outro</MenuItem>
-                              <MenuItem value="pnd">Prefiro não dizer</MenuItem>
+                              <MenuItem value="Feminino">Feminino</MenuItem>
+                              <MenuItem value="Masculino">Masculino</MenuItem>
+                              <MenuItem value="Outro">Outro</MenuItem>
+                              <MenuItem value="Prefiro nao dizer">Prefiro não dizer</MenuItem>
                             </Field>
                           </Grid>
                           <Grid item className={classes.field} xs={2}>
@@ -446,11 +444,11 @@ const Home = () => {
                                 classes: { root: classes.helperText },
                               }}
                             >
-                              <MenuItem value="selecione">
+                              <MenuItem value="Selecione">
                                 <em>Selecione</em>
                               </MenuItem>
-                              <MenuItem value="sim">Sim</MenuItem>
-                              <MenuItem value="nao">Não</MenuItem>
+                              <MenuItem value="Sim">Sim</MenuItem>
+                              <MenuItem value="Nao">Não</MenuItem>
                             </Field>
                           </Grid>
                           <Grid item className={classes.field} xs>
@@ -468,11 +466,11 @@ const Home = () => {
                                 classes: { root: classes.helperText },
                               }}
                             >
-                              <MenuItem value="selecione">
+                              <MenuItem value="Selecione">
                                 <em>Selecione</em>
                               </MenuItem>
-                              <MenuItem value="sim">Sim</MenuItem>
-                              <MenuItem value="nao">Não</MenuItem>
+                              <MenuItem value="Sim">Sim</MenuItem>
+                              <MenuItem value="Nao">Não</MenuItem>
                             </Field>
                           </Grid>
                           <Grid item className={classes.field} xs>
