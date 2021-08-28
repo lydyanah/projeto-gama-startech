@@ -15,6 +15,10 @@ section.formulário{
     justify-content: center;
 }
 
+label{
+    display: block;
+}
+
 @media (min-width: 1024px){
     section.home{
       flex-direction: row;
