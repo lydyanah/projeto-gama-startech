@@ -6,7 +6,6 @@ const routes = require('./routes');
 const app = express();
 const cors = require('cors');
 
-
 mongoose.connect('mongodb+srv://admin:adminpassword@cluster0.mz8w0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
 });
 

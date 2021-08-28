@@ -95,7 +95,7 @@
                   "value": {
                     "nome": "Seu Nome Completo",              
                     "cargo": "Desenvolvedora Frontend",                
-                    "dataNascimento": "31-12-1993",            
+                    "dataNascimento": "1993-12-31",            
                     "estadoCivil": "Solteira",               
                     "genero": "Feminino",               
                     "cep": "00000000",                
