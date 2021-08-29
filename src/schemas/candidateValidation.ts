@@ -8,7 +8,12 @@ const candidateValidation = Yup.object().shape({
     )
     .max(40, "Máximo de 40 caracteres")
     .required("Digite seu nome completo"),
-  cargo: Yup.string().required("Digite sua profissão"),
+  cargo: Yup.string()
+    .matches(
+      /^[a-zA-Z]{2,}(?: [a-zA-Z]+){0,2}$/,
+      "Por favor, preencha um cargo válido"
+    )
+    .required("Digite sua profissão"),
   dataNascimento: Yup.string()
     .nullable()
     .required("Preencha sua data de nascimento"),
@@ -16,9 +21,14 @@ const candidateValidation = Yup.object().shape({
   logradouro: Yup.string().required("Digite seu endereço"),
   bairro: Yup.string().required("Digite seu endereço"),
   cidade: Yup.string().required("Digite a cidade"),
-  uf: Yup.string().required("Digite o estado"),
-  numero: Yup.number().required("Digite o nº"),
-  celular: Yup.number().required("Digite seu nº de celular"),
+  uf: Yup.string()
+    .max(2, "Máximo de 2 caracteres")
+    .matches(/^[a-zA-Z]+$/, "Somente letras")
+    .required("Digite o estado"),
+  numero: Yup.string().max(5, "Máximo de 5 caracteres").required("Digite o nº"),
+  celular: Yup.number()
+    .typeError("Somente números")
+    .required("Digite seu nº de celular"),
   email: Yup.string().required("Digite seu e-mail").email("Formato inválido"),
   telefone1: Yup.number().typeError("Somente números"),
   telefone2: Yup.number().typeError("Somente números"),
@@ -26,7 +36,7 @@ const candidateValidation = Yup.object().shape({
     .matches(/^[a-zA-Z]+$/, "Somente letras")
     .max(40, "Máximo de 40 caracteres"),
   identidade: Yup.number().typeError("Somente números"),
-    cpf: Yup.number()
+  cpf: Yup.number()
     .typeError("Somente números")
     .test("cpf", "CPF Inválido", (value) => validaCPF(value))
     .required("Digite seu CPF"),
@@ -36,18 +46,17 @@ const candidateValidation = Yup.object().shape({
     .matches(/^[a-zA-Z]+$/, "Somente letras"),
 });
 
-const validaCPF = (cpf:any) => {
-
+const validaCPF = (cpf: any) => {
   let numeros, digitos, soma, i, resultado, digitos_iguais;
   digitos_iguais = 1;
-  
+
   if (undefined === cpf) {
-      return true;
-    }
-    
-  if (cpf.length < 11) { 
+    return true;
+  }
+
+  if (cpf.length < 11) {
     return false;
-    }    
+  }
 
   for (i = 0; i < cpf.length - 1; i++) {
     if (cpf.charAt(i) != cpf.charAt(i + 1)) {
