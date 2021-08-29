@@ -58,6 +58,7 @@ const validaCPF = (cpf: any) => {
   }
 
   for (i = 0; i < cpf.length - 1; i++) {
+    // eslint-disable-next-line
     if (cpf.charAt(i) != cpf.charAt(i + 1)) {
       digitos_iguais = 0;
       break;
@@ -74,7 +75,7 @@ const validaCPF = (cpf: any) => {
     }
 
     resultado = soma % 11 < 2 ? 0 : 11 - (soma % 11);
-
+    // eslint-disable-next-line
     if (resultado != digitos.charAt(0)) {
       return false;
     }
@@ -87,6 +88,7 @@ const validaCPF = (cpf: any) => {
     }
 
     resultado = soma % 11 < 2 ? 0 : 11 - (soma % 11);
+    // eslint-disable-next-line
     if (resultado != digitos.charAt(1)) {
       return false;
     }
