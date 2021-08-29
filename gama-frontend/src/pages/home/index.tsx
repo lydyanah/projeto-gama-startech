@@ -111,17 +111,15 @@ const Home = () => {
                     locale={brLocale}
                   >
                     <Form className={classes.form}>
-                      <Typography variant="h1" className={classes.h1}>
-                        Banco de Talentos
-                      </Typography>
+                      <p className="formTitle">Banco de Talentos</p>
                       <Paper className={classes.root} elevation={3}>
                         <Grid container className={classes.container}>
-                          <Grid item className={classes.field} xs={12}>
+                          <Grid item className={classes.field} xs={12} sm={12} md={12} lg={12}>
                             <Typography variant="h1" className={classes.h1}>
                               Dados Pessoais
                             </Typography>
                           </Grid>
-                          <Grid item className={classes.field} xs={7}>
+                          <Grid item className={classes.field} xs={12} sm={12} md={5} lg={6}>
                             <label htmlFor="nome">Nome Completo</label>
                             <Field
                               className={classes.field}
@@ -136,7 +134,7 @@ const Home = () => {
                               }}
                             />
                           </Grid>
-                          <Grid item className={classes.field} xs={4}>
+                          <Grid item className={classes.field} xs={12} sm={6} md={3} lg={5}>
                             <label htmlFor="cargo">Cargo Pretendido</label>
                             <Field
                               className={classes.field}
@@ -151,7 +149,7 @@ const Home = () => {
                               }}
                             />
                           </Grid>
-                          <Grid item className={classes.field} xs={3}>
+                          <Grid item className={classes.field} xs={12} sm={4} md={3} lg={3}>
                             <label htmlFor="dataNascimento">
                               Data de Nascimento
                             </label>
@@ -163,6 +161,7 @@ const Home = () => {
                               format="dd/MM/yyyy"
                               disableFuture="true"
                               inputVariant="outlined"
+                              fullWidth={true}
                               cancelLabel="CANCELAR"
                               invalidDateMessage=""
                               InputProps={{
@@ -177,7 +176,7 @@ const Home = () => {
                               }}
                             />
                           </Grid>
-                          <Grid item className={classes.field} xs={4}>
+                          <Grid item className={classes.field} xs={12} sm={5} md={3} lg={4}>
                             <label htmlFor="estadoCivil">Estado Civil</label>
                             <Field
                               className={classes.field}
@@ -185,8 +184,8 @@ const Home = () => {
                               id="estadoCivil"
                               component={TextField}
                               variant="outlined"
-                              select={true}
                               fullWidth={true}
+                              select={true}
                               InputProps={{ classes: { input: classes.input } }}
                               FormHelperTextProps={{
                                 classes: { root: classes.helperText },
@@ -207,7 +206,7 @@ const Home = () => {
                               </MenuItem>
                             </Field>
                           </Grid>
-                          <Grid item className={classes.field} xs={4}>
+                          <Grid item className={classes.field} xs={12} sm={5} md={3} lg={4}>
                             <label htmlFor="genero">Gênero</label>
                             <Field
                               className={classes.field}
@@ -215,8 +214,8 @@ const Home = () => {
                               id="genero"
                               component={TextField}
                               variant="outlined"
-                              select={true}
                               fullWidth={true}
+                              select={true}
                               InputProps={{ classes: { input: classes.input } }}
                               FormHelperTextProps={{
                                 classes: { root: classes.helperText },
@@ -233,7 +232,7 @@ const Home = () => {
                               </MenuItem>
                             </Field>
                           </Grid>
-                          <Grid item className={classes.field} xs={2}>
+                            <Grid item className={classes.field} xs={12} sm={3} md={2} lg={2}>
                             <label htmlFor="cep">CEP</label>
                             <Field
                               className={classes.field}
@@ -255,7 +254,7 @@ const Home = () => {
                               required
                             />
                           </Grid>
-                          <Grid item className={classes.field} xs={8}>
+                          <Grid item className={classes.field} xs={12} sm={6} md={4} lg={7}>
                             <label htmlFor="logradouro">Endereço</label>
                             <Field
                               className={classes.field}
@@ -270,7 +269,7 @@ const Home = () => {
                               }}
                             />
                           </Grid>
-                          <Grid item className={classes.field} xs={1}>
+                          <Grid item className={classes.field} xs={12} sm={2} md={1} lg={2}>
                             <label htmlFor="numero">Nº</label>
                             <Field
                               className={classes.field}
@@ -285,7 +284,7 @@ const Home = () => {
                               }}
                             />
                           </Grid>
-                          <Grid item className={classes.field} xs={4}>
+                          <Grid item className={classes.field} xs={12} sm={4} md={4} lg={4}>
                             <label htmlFor="bairro">Bairro</label>
                             <Field
                               className={classes.field}
@@ -300,7 +299,7 @@ const Home = () => {
                               }}
                             />
                           </Grid>
-                          <Grid item className={classes.field} xs={6}>
+                          <Grid item className={classes.field} xs={12} sm={5} md={4} lg={4}>
                             <label htmlFor="cidade">Cidade</label>
                             <Field
                               className={classes.field}
@@ -315,7 +314,7 @@ const Home = () => {
                               }}
                             />
                           </Grid>
-                          <Grid item className={classes.field} xs={1}>
+                          <Grid item className={classes.field} xs={12} sm={2} md={1} lg={1}>
                             <label htmlFor="uf">Estado</label>
                             <Field
                               className={classes.field}
@@ -330,7 +329,7 @@ const Home = () => {
                               }}
                             />
                           </Grid>
-                          <Grid item className={classes.field} xs={3}>
+                          <Grid item className={classes.field} xs={12} sm={4} md={2} lg={3}>
                             <label htmlFor="celular">Celular</label>
                             <Field
                               className={classes.field}
@@ -338,13 +337,14 @@ const Home = () => {
                               id="celular"
                               component={TextField}
                               variant="outlined"
+                              fullWidth={true}
                               InputProps={{ classes: { input: classes.input } }}
                               FormHelperTextProps={{
                                 classes: { root: classes.helperText },
                               }}
                             />
                           </Grid>
-                          <Grid item className={classes.field} xs={5}>
+                          <Grid item className={classes.field} xs={12} sm={6} md={3} lg={4}>
                             <label htmlFor="email">E-mail</label>
                             <Field
                               className={classes.field}
@@ -352,13 +352,14 @@ const Home = () => {
                               id="email"
                               component={TextField}
                               variant="outlined"
+                              fullWidth={true}
                               InputProps={{ classes: { input: classes.input } }}
                               FormHelperTextProps={{
                                 classes: { root: classes.helperText },
                               }}
                             />
                           </Grid>
-                          <Grid item className={classes.field} xs={3}>
+                          <Grid item className={classes.field} xs={12} sm={5} md={3} lg={3}>
                             <label htmlFor="telefone1">
                               Telefone Residencial
                             </label>
@@ -368,13 +369,14 @@ const Home = () => {
                               id="telefone1"
                               component={TextField}
                               variant="outlined"
+                              fullWidth={true}
                               InputProps={{ classes: { input: classes.input } }}
                               FormHelperTextProps={{
                                 classes: { root: classes.helperText },
                               }}
                             />
                           </Grid>
-                          <Grid item className={classes.field} xs>
+                          <Grid item className={classes.field} xs={12} sm={5} md={3} lg={4}>
                             <label htmlFor="telefone2">
                               Telefone para recados
                             </label>
@@ -384,13 +386,14 @@ const Home = () => {
                               id="telefone2"
                               component={TextField}
                               variant="outlined"
+                              fullWidth={true}
                               InputProps={{ classes: { input: classes.input } }}
                               FormHelperTextProps={{
                                 classes: { root: classes.helperText },
                               }}
                             />
                           </Grid>
-                          <Grid item className={classes.field} xs>
+                          <Grid item className={classes.field} xs={12} sm={5} md={3} lg={4}>
                             <label htmlFor="contato">Falar com</label>
                             <Field
                               className={classes.field}
@@ -398,6 +401,7 @@ const Home = () => {
                               id="contato"
                               component={TextField}
                               variant="outlined"
+                              fullWidth={true}
                               InputProps={{ classes: { input: classes.input } }}
                               FormHelperTextProps={{
                                 classes: { root: classes.helperText },
@@ -406,12 +410,12 @@ const Home = () => {
                           </Grid>
                         </Grid>
                         <Grid container className={classes.container}>
-                          <Grid item className={classes.field} xs={12}>
+                          <Grid item className={classes.field} xs={12} sm={12} md={12} lg={12}>
                             <Typography variant="h1" className={classes.h1}>
                               Documentos
                             </Typography>
                           </Grid>
-                          <Grid item className={classes.field} xs>
+                          <Grid item className={classes.field} xs={12} sm={4} md={2} lg={2}>
                             <label htmlFor="identidade">Identidade</label>
                             <Field
                               className={classes.field}
@@ -419,13 +423,14 @@ const Home = () => {
                               id="identidade"
                               component={TextField}
                               variant="outlined"
+                              fullWidth={true}
                               InputProps={{ classes: { input: classes.input } }}
                               FormHelperTextProps={{
                                 classes: { root: classes.helperText },
                               }}
                             />
                           </Grid>
-                          <Grid item className={classes.field} xs>
+                          <Grid item className={classes.field} xs={12} sm={5} md={2} lg={3}>
                             <label htmlFor="cpf">CPF</label>
                             <Field
                               className={classes.field}
@@ -433,13 +438,14 @@ const Home = () => {
                               id="cpf"
                               component={TextField}
                               variant="outlined"
+                              fullWidth={true}
                               InputProps={{ classes: { input: classes.input } }}
                               FormHelperTextProps={{
                                 classes: { root: classes.helperText },
                               }}
                             />
                           </Grid>
-                          <Grid item className={classes.field} xs>
+                          <Grid item className={classes.field} xs={12} sm={4} md={2} lg={3}>
                             <label htmlFor="veiculo">Possui veículo?</label>
                             <Field
                               className={classes.field}
@@ -461,7 +467,7 @@ const Home = () => {
                               <MenuItem value="Nao">Não</MenuItem>
                             </Field>
                           </Grid>
-                          <Grid item className={classes.field} xs>
+                          <Grid item className={classes.field} xs={12} sm={4} md={2} lg={2}>
                             <label htmlFor="habilitacao">Habilitação</label>
                             <Field
                               className={classes.field}
@@ -483,7 +489,7 @@ const Home = () => {
                               <MenuItem value="Nao">Não</MenuItem>
                             </Field>
                           </Grid>
-                          <Grid item className={classes.field} xs>
+                          <Grid item className={classes.field} xs={12} sm={2} md={1} lg={1}>
                             <label htmlFor="categoria">Categoria</label>
                             <Field
                               className={classes.field}
@@ -491,6 +497,7 @@ const Home = () => {
                               id="categoria"
                               component={TextField}
                               variant="outlined"
+                              fullWidth={true}
                               InputProps={{ classes: { input: classes.input } }}
                               FormHelperTextProps={{
                                 classes: { root: classes.helperText },

@@ -55,7 +55,7 @@ const formStyles = makeStyles(theme => ({
     h1: {
         fontSize: '1.25rem',
         fontWeight: 500,
-        margin: theme.spacing(1),
+        margin: '8px 0px',
     },
     
     h2: {

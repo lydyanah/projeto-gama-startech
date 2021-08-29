@@ -1,5 +1,5 @@
   .navbar-fixed{
-    background-color: rgb(76, 223, 215);
+    background-color: #6badd1a8;
     position: fixed;
     top: 0;
     z-index: 100;
@@ -16,7 +16,7 @@
   
   
   footer{
-    background-color: rgb(76, 223, 215);
+    background-color: #58358088;
     height: 50px;
     margin-top: auto;  
     display: flex;
