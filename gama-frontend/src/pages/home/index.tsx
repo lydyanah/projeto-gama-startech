@@ -111,7 +111,7 @@ const Home = () => {
                     locale={brLocale}
                   >
                     <Form className={classes.form}>
-                      <p className="formTitle">Banco de Talentos</p>
+                      <h2 className="formTitle">Banco de Talentos</h2>
                       <Paper className={classes.root} elevation={3}>
                         <Grid container className={classes.container}>
                           <Grid item className={classes.field} xs={12} sm={12} md={12} lg={12}>

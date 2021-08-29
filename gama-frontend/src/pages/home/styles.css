@@ -27,7 +27,7 @@ label{
 .formTitle{
     font-size: 2em;
     line-height: 1.5;
-    font-weight: 600;
+    font-weight: 700;
     text-align: center;
 }
 
@@ -42,3 +42,10 @@ label{
         width: 50%;
     }
   }
+
+  @media (min-width: 1074px){
+    section.conteúdo{
+       padding: 40px;
+  }
+}
+  
