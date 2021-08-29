@@ -17,7 +17,7 @@ const candidateValidation = Yup.object().shape({
   dataNascimento: Yup.string()
     .nullable()
     .required("Preencha sua data de nascimento"),
-  cep: Yup.number().typeError("Somente números").required("Digite seu CEP"),
+  cep: Yup.string().required("Digite seu CEP"),
   logradouro: Yup.string().required("Digite seu endereço"),
   bairro: Yup.string().required("Digite seu endereço"),
   cidade: Yup.string().required("Digite a cidade"),
@@ -26,12 +26,8 @@ const candidateValidation = Yup.object().shape({
     .matches(/^[a-zA-Z]+$/, "Somente letras")
     .required("Digite o estado"),
   numero: Yup.string().max(5, "Máximo de 5 caracteres").required("Digite o nº"),
-  celular: Yup.number()
-    .typeError("Somente números")
-    .required("Digite seu nº de celular"),
+  celular: Yup.string().required("Digite seu nº de celular"),
   email: Yup.string().required("Digite seu e-mail").email("Formato inválido"),
-  telefone1: Yup.number().typeError("Somente números"),
-  telefone2: Yup.number().typeError("Somente números"),
   contato: Yup.string()
     .matches(/^[a-zA-Z]+$/, "Somente letras")
     .max(40, "Máximo de 40 caracteres"),
@@ -49,25 +45,27 @@ const validaCPF = (cpf: any) => {
   let numeros, digitos, soma, i, resultado, digitos_iguais;
   digitos_iguais = 1;
 
+ const cpfNumeros = cpf.replace(/[^\d]+/g, '');
+
   if (undefined === cpf) {
     return true;
   }
 
-  if (cpf.length < 11) {
+  if (cpfNumeros.length < 11) {
     return false;
   }
 
-  for (i = 0; i < cpf.length - 1; i++) {
+  for (i = 0; i < cpfNumeros.length - 1; i++) {
     // eslint-disable-next-line
-    if (cpf.charAt(i) != cpf.charAt(i + 1)) {
+    if (cpfNumeros.charAt(i) != cpfNumeros.charAt(i + 1)) {
       digitos_iguais = 0;
       break;
     }
   }
 
   if (!digitos_iguais) {
-    numeros = cpf.substring(0, 9);
-    digitos = cpf.substring(9);
+    numeros = cpfNumeros.substring(0, 9);
+    digitos = cpfNumeros.substring(9);
     soma = 0;
 
     for (i = 10; i > 1; i--) {
@@ -80,7 +78,7 @@ const validaCPF = (cpf: any) => {
       return false;
     }
 
-    numeros = cpf.substring(0, 10);
+    numeros = cpfNumeros.substring(0, 10);
     soma = 0;
 
     for (i = 11; i > 1; i--) {

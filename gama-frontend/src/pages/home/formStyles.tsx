@@ -8,8 +8,9 @@ const formStyles = makeStyles(theme => ({
         flexDirection:'column',
         flexWrap: 'wrap',
         justifyContent: 'center',
-        padding: theme.spacing(4),
+        padding: '20px',
         margin: theme.spacing(1),
+        width: '100%'
     },
     
     container: {
