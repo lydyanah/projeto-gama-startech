@@ -38,9 +38,8 @@ const Home = () => {
 
   const classes = formStyles();
 
-  const onBlurCep = (ev: any, setFieldValue: any) => {
+  const address = (ev: any, setFieldValue: any) => {
     const { value } = ev.target;
-
     const cep = value;
 
     fetch(`https://viacep.com.br/ws/${cep}/json/`)
@@ -237,7 +236,8 @@ const Home = () => {
                               component={TextField}
                               variant="outlined"
                               fullWidth={true}
-                              onBlur={(ev: any) => onBlurCep(ev, setFieldValue)}
+                              onMouseOut={(ev: any) => address(ev, setFieldValue)}
+                              onKeyDown={(ev: any) => address(ev, setFieldValue)}
                               InputProps={{ classes: { input: classes.input } }}
                               FormHelperTextProps={{
                                 classes: { root: classes.helperText },
