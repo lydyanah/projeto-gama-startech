@@ -26,7 +26,12 @@ const candidateValidation = Yup.object().shape({
     .matches(/^[a-zA-Z]+$/, "Somente letras")
     .required("Digite o estado"),
   numero: Yup.string().max(5, "Máximo de 5 caracteres").required("Digite o nº"),
-  celular: Yup.string().required("Digite seu nº de celular"),
+  celular: Yup.string()
+  .required("Digite seu nº de celular")
+  .test("celular", "Número inválido", (val: any) => {
+    const val_length = val?.replace(/[^\d]+/g, "").length;
+    return val_length === 11;
+  }),
   email: Yup.string().required("Digite seu e-mail").email("Formato inválido"),
   contato: Yup.string()
     .matches(/^[a-zA-Z]+$/, "Somente letras")
@@ -45,7 +50,7 @@ const validaCPF = (cpf: any) => {
   let numeros, digitos, soma, i, resultado, digitos_iguais;
   digitos_iguais = 1;
 
- const cpfNumeros = cpf.replace(/[^\d]+/g, '');
+ const cpfNumeros = cpf?.replace(/[^\d]+/g, '');
 
   if (undefined === cpf) {
     return true;
