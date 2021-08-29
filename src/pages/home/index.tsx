@@ -9,6 +9,7 @@ import candidateValidation from "../../schemas/candidateValidation";
 import api from "../../services/api";
 import Page from "../../components/Page/Page";
 import formStyles from "./formStyles";
+import {CelularMask, TelefoneMask, CPFMask, CEPMask} from "../../components/TextMasks/TextMasks"
 import "./styles.css";
 
 const Home = () => {
@@ -247,7 +248,7 @@ const Home = () => {
                               onKeyDown={(ev: any) =>
                                 address(ev, setFieldValue)
                               }
-                              InputProps={{ classes: { input: classes.input } }}
+                              InputProps={{ classes: { input: classes.input }, inputComponent: CEPMask as any }}
                               FormHelperTextProps={{
                                 classes: { root: classes.helperText },
                               }}
@@ -338,7 +339,7 @@ const Home = () => {
                               component={TextField}
                               variant="outlined"
                               fullWidth={true}
-                              InputProps={{ classes: { input: classes.input } }}
+                              InputProps={{ classes: { input: classes.input }, inputComponent: CelularMask as any }}
                               FormHelperTextProps={{
                                 classes: { root: classes.helperText },
                               }}
@@ -370,7 +371,7 @@ const Home = () => {
                               component={TextField}
                               variant="outlined"
                               fullWidth={true}
-                              InputProps={{ classes: { input: classes.input } }}
+                              InputProps={{ classes: { input: classes.input }, inputComponent: TelefoneMask as any }}
                               FormHelperTextProps={{
                                 classes: { root: classes.helperText },
                               }}
@@ -387,7 +388,7 @@ const Home = () => {
                               component={TextField}
                               variant="outlined"
                               fullWidth={true}
-                              InputProps={{ classes: { input: classes.input } }}
+                              InputProps={{ classes: { input: classes.input }, inputComponent: TelefoneMask as any }}
                               FormHelperTextProps={{
                                 classes: { root: classes.helperText },
                               }}
@@ -439,7 +440,7 @@ const Home = () => {
                               component={TextField}
                               variant="outlined"
                               fullWidth={true}
-                              InputProps={{ classes: { input: classes.input } }}
+                              InputProps={{ classes: { input: classes.input }, inputComponent: CPFMask as any }}
                               FormHelperTextProps={{
                                 classes: { root: classes.helperText },
                               }}
