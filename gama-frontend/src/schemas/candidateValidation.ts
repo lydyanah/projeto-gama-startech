@@ -36,8 +36,7 @@ const candidateValidation = Yup.object().shape({
     .matches(/^[a-zA-Z]+$/, "Somente letras")
     .max(40, "Máximo de 40 caracteres"),
   identidade: Yup.number().typeError("Somente números"),
-  cpf: Yup.number()
-    .typeError("Somente números")
+  cpf: Yup.string()
     .test("cpf", "CPF Inválido", (value) => validaCPF(value))
     .required("Digite seu CPF"),
   categoria: Yup.string()
