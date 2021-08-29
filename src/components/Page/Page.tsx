@@ -1,4 +1,5 @@
 import { FunctionComponent, ReactNode } from "react";
+import Logo from "../../assets/images/logo.png";
 import "./styles.css";
 
 type Props = {
@@ -10,7 +11,11 @@ const Page: FunctionComponent<Props> = ({ children }) => {
     <>
       <div className="navbar-fixed">
         <div className="navbar-content">
-          <h1>JobsNet</h1>
+        <div className="jobsNet">
+            <img className="logotipo" src={Logo} alt="logotipo" />
+            <span>JobsNet</span>
+          </div>
+         
           <div className="menu"></div>
         </div>
       </div>

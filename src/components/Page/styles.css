@@ -1,3 +1,14 @@
+  .logotipo{
+    height: 40px;
+    padding: 10px 20px;
+  }
+
+  .jobsNet{
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+  }
+  
   .navbar-fixed{
     background-color: #6badd1a8;
     position: fixed;
@@ -34,8 +45,8 @@
   }
   
   @media (min-width: 440px){
-    .navbar-content{
-      justify-content: space-around;
+    .jobsNet{
+      margin-left: 40px;
     }
   }
   
