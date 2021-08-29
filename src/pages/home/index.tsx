@@ -58,7 +58,7 @@ const Home = () => {
         <section className="home">
           <section className="conteúdo">
             <h1>
-              Cadastre-se em nosso Banco de Currículos e encontre a sua próxima
+              Cadastre-se em nosso Banco de Talentos e encontre a sua próxima
               oportunidade!
             </h1>
           </section>
