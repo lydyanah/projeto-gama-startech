@@ -98,26 +98,26 @@
                 "Candidato Teste": {
                   "value": {
                     "nome": "Seu Nome Completo",              
-                    "cargo": "Desenvolvedora Frontend",                
-                    "dataNascimento": "1993-12-31",            
-                    "estadoCivil": "Solteira",               
+                    "cargo": "Sua Profissão",                
+                    "dataNascimento": "AAAA-MM-DD",            
+                    "estadoCivil": "Solteiro",               
                     "genero": "Feminino",               
-                    "cep": "00000000",                
+                    "cep": "00000-000",                
                     "logradouro": "R. Primavera",               
                     "numero":"2021",             
                     "bairro": "Jardim das Estações",
                     "cidade": "São Paulo",
                     "uf": "SP",
-                    "celular": "11999999999",              
+                    "celular": "(11) 99999-9999",              
                     "email": "seu@email.com",              
-                    "telefone1": "1133333333",
-                    "telefone2": "",                
-                    "contato": "",                
+                    "telefone1": "(11) 3333-3333",
+                    "telefone2": "(11) 3333-3333",                
+                    "contato": "Nome do Contato",                
                     "identidade": "888888888",                
-                    "cpf": "99999999999",                
+                    "cpf": "999.999.999-99",                
                     "veiculo": "Não",                
-                    "habilitacao": "Não",              
-                    "categoria": ""
+                    "habilitacao": "Sim",              
+                    "categoria": "AB"
                   }
                 }
               }
