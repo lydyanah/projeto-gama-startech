@@ -1,6 +1,7 @@
 section.home{
     display: flex;
     flex-direction: column;
+   
 }
 
 section.conteúdo{
@@ -9,9 +10,7 @@ section.conteúdo{
     align-items: center;
     min-width: 40%;
     height: 500px;
-}
-
-section.conteúdo h1{
+    line-height: 1.5;    
     text-align: center;
     font-size: 2em;
 }
@@ -23,6 +22,13 @@ section.formulário{
 
 label{
     display: block;
+}
+
+.formTitle{
+    font-size: 2em;
+    line-height: 1.5;
+    font-weight: 600;
+    text-align: center;
 }
 
 @media (min-width: 1024px){

@@ -8,10 +8,12 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-image: linear-gradient(to top, #583580, #653e87, #72488f, #7f5296, #8b5c9e, #8b67a9, #8b72b3, #8b7dbd, #7e8bc8, #7298ce, #6ba3d1, #6baed1);
 }
 
 main{
     margin-top: 40px;
+    
 }
 
 section{
