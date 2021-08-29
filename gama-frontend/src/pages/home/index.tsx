@@ -344,7 +344,7 @@ const Home = () => {
                               }}
                             />
                           </Grid>
-                          <Grid item className={classes.field} xs={12} sm={6} md={3} lg={4}>
+                          <Grid item className={classes.field} xs={12} sm={6} md={3} lg={5}>
                             <label htmlFor="email">E-mail</label>
                             <Field
                               className={classes.field}
@@ -359,7 +359,7 @@ const Home = () => {
                               }}
                             />
                           </Grid>
-                          <Grid item className={classes.field} xs={12} sm={5} md={3} lg={3}>
+                          <Grid item className={classes.field} xs={12} sm={5} md={3} lg={4}>
                             <label htmlFor="telefone1">
                               Telefone Residencial
                             </label>
@@ -393,7 +393,7 @@ const Home = () => {
                               }}
                             />
                           </Grid>
-                          <Grid item className={classes.field} xs={12} sm={5} md={3} lg={4}>
+                          <Grid item className={classes.field} xs={12} sm={5} md={3} lg={3}>
                             <label htmlFor="contato">Falar com</label>
                             <Field
                               className={classes.field}
