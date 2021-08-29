@@ -10,7 +10,8 @@
   }
   
   .navbar-fixed{
-    background-color: #6badd1a8;
+    background-color: #6badd194;
+    backdrop-filter: blur(8px);
     position: fixed;
     top: 0;
     z-index: 100;
