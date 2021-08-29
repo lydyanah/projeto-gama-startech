@@ -16,8 +16,8 @@ const Home = () => {
     nome: "",
     cargo: "",
     dataNascimento: null,
-    estadoCivil: "Selecione",
-    genero: "Selecione",
+    estadoCivil: "",
+    genero: "",
     cep: "",
     logradouro: "",
     numero: "",
@@ -31,12 +31,10 @@ const Home = () => {
     contato: "",
     identidade: "",
     cpf: "",
-    veiculo: "Selecione",
-    habilitacao: "Selecione",
+    veiculo: "",
+    habilitacao: "",
     categoria: "",
   };
-
-  const classes = formStyles();
 
   const address = (ev: any, setFieldValue: any) => {
     const { value } = ev.target;
@@ -51,6 +49,8 @@ const Home = () => {
         setFieldValue("uf", data.uf);
       });
   };
+
+  const classes = formStyles();
 
   return (
     <>
@@ -192,15 +192,19 @@ const Home = () => {
                                 classes: { root: classes.helperText },
                               }}
                             >
-                              <MenuItem value="Selecione">
+                              <MenuItem value="">
                                 <em>Selecione</em>
                               </MenuItem>
                               <MenuItem value="Casado">Casado(a)</MenuItem>
                               <MenuItem value="Solteiro">Solteiro(a)</MenuItem>
-                              <MenuItem value="Divorciado">Divorciado(a)</MenuItem>
+                              <MenuItem value="Divorciado">
+                                Divorciado(a)
+                              </MenuItem>
                               <MenuItem value="Viuvo">Viúvo(a)</MenuItem>
                               <MenuItem value="Outro">Outro</MenuItem>
-                              <MenuItem value="Prefiro nao dizer">Prefiro não dizer</MenuItem>
+                              <MenuItem value="Prefiro nao dizer">
+                                Prefiro não dizer
+                              </MenuItem>
                             </Field>
                           </Grid>
                           <Grid item className={classes.field} xs={4}>
@@ -218,13 +222,15 @@ const Home = () => {
                                 classes: { root: classes.helperText },
                               }}
                             >
-                              <MenuItem value="Selecione">
+                              <MenuItem value="">
                                 <em>Selecione</em>
                               </MenuItem>
                               <MenuItem value="Feminino">Feminino</MenuItem>
                               <MenuItem value="Masculino">Masculino</MenuItem>
                               <MenuItem value="Outro">Outro</MenuItem>
-                              <MenuItem value="Prefiro nao dizer">Prefiro não dizer</MenuItem>
+                              <MenuItem value="Prefiro nao dizer">
+                                Prefiro não dizer
+                              </MenuItem>
                             </Field>
                           </Grid>
                           <Grid item className={classes.field} xs={2}>
@@ -236,8 +242,12 @@ const Home = () => {
                               component={TextField}
                               variant="outlined"
                               fullWidth={true}
-                              onMouseOut={(ev: any) => address(ev, setFieldValue)}
-                              onKeyDown={(ev: any) => address(ev, setFieldValue)}
+                              onMouseOut={(ev: any) =>
+                                address(ev, setFieldValue)
+                              }
+                              onKeyDown={(ev: any) =>
+                                address(ev, setFieldValue)
+                              }
                               InputProps={{ classes: { input: classes.input } }}
                               FormHelperTextProps={{
                                 classes: { root: classes.helperText },
@@ -444,7 +454,7 @@ const Home = () => {
                                 classes: { root: classes.helperText },
                               }}
                             >
-                              <MenuItem value="Selecione">
+                              <MenuItem value="">
                                 <em>Selecione</em>
                               </MenuItem>
                               <MenuItem value="Sim">Sim</MenuItem>
@@ -466,7 +476,7 @@ const Home = () => {
                                 classes: { root: classes.helperText },
                               }}
                             >
-                              <MenuItem value="Selecione">
+                              <MenuItem value="">
                                 <em>Selecione</em>
                               </MenuItem>
                               <MenuItem value="Sim">Sim</MenuItem>
