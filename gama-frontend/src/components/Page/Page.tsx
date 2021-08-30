@@ -13,7 +13,7 @@ const Page: FunctionComponent<Props> = ({ children }) => {
         <div className="navbar-content">
         <div className="jobsNet">
             <img className="logotipo" src={Logo} alt="logotipo" />
-            <span>JobsNet</span>
+            <span>JobsNET</span>
           </div>
          
           <div className="menu"></div>
